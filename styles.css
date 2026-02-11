@@ -500,6 +500,13 @@ section {
     margin-bottom: var(--spacing-lg);
 }
 
+.contact-cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: var(--spacing-lg);
+}
+
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
