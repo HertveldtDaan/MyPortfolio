@@ -51,6 +51,3 @@ temp/
 # Cache
 .cache/
 .parcel-cache/
-
-# Images (personal photos)
-images/
