@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building My First TensorFlow Project - Daan Hertveldt</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">DH</a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                <span class="sun-icon">☀️</span>
+                <span class="moon-icon">🌙</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Blog Post Content -->
+    <article class="blog-post">
+        <a href="blog.html" class="back-link">← Back to Blog</a>
+
+        <header class="blog-post-header">
+            <h1 class="blog-post-title">Building My First TensorFlow Project</h1>
+            <div class="blog-post-meta">
+                <span>January 15, 2026</span> • <span>6 min read</span>
+            </div>
+        </header>
+
+        <div class="blog-post-content">
+            <p>
+                Building your first TensorFlow project can feel daunting. After weeks of tutorials and reading
+                documentation, I finally decided to build something from scratch – an image classification model for
+                plant disease detection. Here's what I learned along the way.
+            </p>
+
+            <h2>Choosing the Right Project</h2>
+            <p>
+                I chose plant disease detection for several reasons. First, it's a practical problem with real-world
+                applications in agriculture. Second, it requires working with image data, which helped me understand
+                convolutional neural networks better. Finally, there are good datasets available online, making it
+                perfect for a first project.
+            </p>
+
+            <h2>Setting Up the Environment</h2>
+            <p>
+                Before diving into code, proper environment setup is crucial. Here's what I installed:
+            </p>
+
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>TensorFlow 2.x (with GPU support for faster training)</li>
+                <li>NumPy and Pandas for data manipulation</li>
+                <li>Matplotlib for visualization</li>
+                <li>OpenCV for image preprocessing</li>
+            </ul>
+
+            <p>
+                I used Google Colab initially for free GPU access, which was perfect for learning. Later, I set up a
+                local environment with CUDA for more control.
+            </p>
+
+            <h2>Data Preparation</h2>
+            <p>
+                This phase took longer than expected but was crucial for model success. Here's my workflow:
+            </p>
+
+            <h3>1. Data Collection</h3>
+            <p>
+                I used the PlantVillage dataset, which contains thousands of images of healthy and diseased plant
+                leaves. The dataset was well-organized with separate folders for each class.
+            </p>
+
+            <h3>2. Data Exploration</h3>
+            <p>
+                Before building any models, I spent time understanding my data:
+            </p>
+
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>Checked class distribution to identify imbalances</li>
+                <li>Visualized sample images from each class</li>
+                <li>Examined image sizes and formats</li>
+                <li>Looked for corrupted or mislabeled images</li>
+            </ul>
+
+            <h3>3. Data Augmentation</h3>
+            <p>
+                To improve model generalization, I applied various augmentation techniques:
+            </p>
+
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>Random rotations (±30 degrees)</li>
+                <li>Horizontal and vertical flips</li>
+                <li>Random zoom (80-120%)</li>
+                <li>Brightness adjustments</li>
+            </ul>
+
+            <p>
+                TensorFlow's <code>ImageDataGenerator</code> made this incredibly easy to implement.
+            </p>
+
+            <h2>Model Architecture</h2>
+            <p>
+                I started with a simple CNN architecture and gradually increased complexity:
+            </p>
+
+            <h3>Version 1: Basic CNN</h3>
+            <p>
+                My first model was simple: 3 convolutional layers, max pooling, and a couple of dense layers. It
+                achieved about 75% accuracy – not great, but a solid baseline.
+            </p>
+
+            <h3>Version 2: Deeper Network</h3>
+            <p>
+                I added more convolutional layers and included batch normalization. This improved accuracy to 85% but
+                started overfitting on the training data.
+            </p>
+
+            <h3>Version 3: Transfer Learning</h3>
+            <p>
+                This was my breakthrough moment. Using MobileNetV2 pre-trained on ImageNet and fine-tuning it on my
+                dataset pushed accuracy to 94%. Transfer learning is powerful!
+            </p>
+
+            <h2>Training Process</h2>
+            <p>
+                Training deep learning models requires patience and careful monitoring:
+            </p>
+
+            <h3>Key Lessons:</h3>
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li><strong>Learning rate matters:</strong> I started with 0.001 and used learning rate scheduling to
+                    decay it over time</li>
+                <li><strong>Monitor validation loss:</strong> Training loss isn't everything; validation loss tells the
+                    real story</li>
+                <li><strong>Use callbacks:</strong> ModelCheckpoint and EarlyStopping saved me hours of wasted training
+                    time</li>
+                <li><strong>Batch size trade-offs:</strong> Larger batches train faster but smaller batches sometimes
+                    generalize better</li>
+            </ul>
+
+            <h2>Common Pitfalls I Encountered</h2>
+
+            <h3>1. Overfitting</h3>
+            <p>
+                My model memorized the training data instead of learning generalizable patterns. Solutions that worked:
+            </p>
+
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>Added dropout layers (0.3-0.5 dropout rate)</li>
+                <li>Increased data augmentation</li>
+                <li>Reduced model complexity</li>
+                <li>Used L2 regularization</li>
+            </ul>
+
+            <h3>2. Vanishing Gradients</h3>
+            <p>
+                Deep networks sometimes failed to train properly. Using ReLU activations and batch normalization solved
+                this issue.
+            </p>
+
+            <h3>3. Class Imbalance</h3>
+            <p>
+                Some disease classes had fewer examples. I used class weights to penalize mistakes on rare classes more
+                heavily.
+            </p>
+
+            <h3>4. Memory Issues</h3>
+            <p>
+                Loading all images into memory caused crashes. Using TensorFlow's <code>tf.data</code> API for efficient
+                data pipeline solved this elegantly.
+            </p>
+
+            <h2>Evaluation and Metrics</h2>
+            <p>
+                Accuracy alone doesn't tell the whole story. I tracked multiple metrics:
+            </p>
+
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li><strong>Precision and Recall:</strong> Important for imbalanced classes</li>
+                <li><strong>Confusion Matrix:</strong> Showed which classes were being confused</li>
+                <li><strong>F1 Score:</strong> Balanced metric for overall performance</li>
+                <li><strong>ROC-AUC:</strong> Helpful for understanding model confidence</li>
+            </ul>
+
+            <h2>Model Deployment Considerations</h2>
+            <p>
+                Building the model is only half the battle. I learned about:
+            </p>
+
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>Converting models to TensorFlow Lite for mobile deployment</li>
+                <li>Quantization techniques to reduce model size</li>
+                <li>Creating simple Flask APIs for serving predictions</li>
+                <li>Handling edge cases and uncertain predictions</li>
+            </ul>
+
+            <h2>Tools That Helped</h2>
+            <p>
+                Beyond TensorFlow, these tools were invaluable:
+            </p>
+
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li><strong>TensorBoard:</strong> Visualizing training progress and model architecture</li>
+                <li><strong>Weights & Biases:</strong> Experiment tracking and hyperparameter tuning</li>
+                <li><strong>Jupyter Notebooks:</strong> Interactive development and visualization</li>
+                <li><strong>Git:</strong> Version control for code and model checkpoints</li>
+            </ul>
+
+            <h2>Performance Optimization</h2>
+            <p>
+                Making the model faster without sacrificing accuracy:
+            </p>
+
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>Used mixed precision training (FP16) for 2x speedup</li>
+                <li>Optimized data pipeline with prefetching and parallel processing</li>
+                <li>Cached processed data to avoid redundant preprocessing</li>
+                <li>Used distributed training for larger experiments</li>
+            </ul>
+
+            <h2>Final Results</h2>
+            <p>
+                After weeks of iteration, my final model achieved:
+            </p>
+
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>94.2% test accuracy</li>
+                <li>Inference time of 50ms per image on CPU</li>
+                <li>Model size of 9MB (after quantization)</li>
+                <li>Robust performance across different lighting conditions</li>
+            </ul>
+
+            <h2>Key Takeaways</h2>
+            <p>
+                Building this project taught me more than any tutorial could:
+            </p>
+
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>Start simple and iterate</li>
+                <li>Data quality matters more than model complexity</li>
+                <li>Transfer learning is your friend</li>
+                <li>Monitor everything during training</li>
+                <li>Don't optimize prematurely</li>
+            </ul>
+
+            <h2>What's Next?</h2>
+            <p>
+                This project opened many doors. I'm now working on:
+            </p>
+
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>Adding object detection to locate diseased areas</li>
+                <li>Building a mobile app for farmers</li>
+                <li>Exploring attention mechanisms for better interpretability</li>
+                <li>Creating a web interface for easy access</li>
+            </ul>
+
+            <h2>Resources and Code</h2>
+            <p>
+                I've open-sourced my code on GitHub with detailed documentation. The repository includes:
+            </p>
+
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>Complete training pipeline</li>
+                <li>Data preprocessing scripts</li>
+                <li>Model architecture definitions</li>
+                <li>Evaluation notebooks</li>
+                <li>Deployment examples</li>
+            </ul>
+
+            <h2>Final Thoughts</h2>
+            <p>
+                Building my first TensorFlow project was challenging but incredibly rewarding. The best way to learn
+                deep learning is by doing. Don't wait for the perfect project idea – start building, make mistakes, and
+                learn from them.
+            </p>
+
+            <p>
+                If you're working on your first deep learning project, remember that everyone struggles with the same
+                issues. Debug systematically, ask for help when stuck, and celebrate small victories along the way.
+            </p>
+
+            <p>
+                What was your first deep learning project? What challenges did you face? I'd love to hear your
+                experiences!
+            </p>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Daan Hertveldt. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/HertveldtDaan" target="_blank" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/daan-hertveldt-504a9a359/" target="_blank" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

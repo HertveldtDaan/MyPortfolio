@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Libraries Every ML Engineer Should Know - Daan Hertveldt</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">DH</a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                <span class="sun-icon">☀️</span>
+                <span class="moon-icon">🌙</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Blog Post Content -->
+    <article class="blog-post">
+        <a href="blog.html" class="back-link">← Back to Blog</a>
+
+        <header class="blog-post-header">
+            <h1 class="blog-post-title">Python Libraries Every ML Engineer Should Know</h1>
+            <div class="blog-post-meta">
+                <span>December 5, 2025</span> • <span>8 min read</span>
+            </div>
+        </header>
+
+        <div class="blog-post-content">
+            <p>
+                Python has become the de facto language for machine learning, and for good reason. Its extensive
+                ecosystem of libraries makes complex ML tasks accessible and efficient. Here's my comprehensive guide to
+                the essential Python libraries every ML engineer should know.
+            </p>
+
+            <h2>Core Data Manipulation</h2>
+
+            <h3>1. NumPy</h3>
+            <p>
+                The foundation of numerical computing in Python. NumPy provides support for multi-dimensional arrays and
+                matrices, along with mathematical functions to operate on them.
+            </p>
+
+            <p><strong>Key features:</strong></p>
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>N-dimensional array object</li>
+                <li>Broadcasting functions</li>
+                <li>Linear algebra operations</li>
+                <li>Random number generation</li>
+                <li>Integration with C/C++ for performance</li>
+            </ul>
+
+            <p><strong>When to use:</strong> Everything! NumPy is the backbone of most scientific computing in Python.
+                You'll use it for data preprocessing, mathematical operations, and as the foundation for other
+                libraries.</p>
+
+            <h3>2. Pandas</h3>
+            <p>
+                Built on top of NumPy, Pandas provides high-performance data structures for data analysis. The DataFrame
+                is one of the most powerful tools in a data scientist's arsenal.
+            </p>
+
+            <p><strong>Key features:</strong></p>
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>DataFrame and Series structures</li>
+                <li>Data alignment and missing data handling</li>
+                <li>Group by operations</li>
+                <li>Time series functionality</li>
+                <li>Reading/writing various file formats</li>
+            </ul>
+
+            <p><strong>When to use:</strong> Data cleaning, exploration, and manipulation. Before you can train any
+                model, you need to understand and prepare your data – that's where Pandas shines.</p>
+
+            <h2>Machine Learning Frameworks</h2>
+
+            <h3>3. Scikit-learn</h3>
+            <p>
+                The Swiss Army knife of machine learning. Scikit-learn provides simple and efficient tools for
+                traditional ML algorithms.
+            </p>
+
+            <p><strong>What it includes:</strong></p>
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>Classification algorithms (SVM, Random Forest, etc.)</li>
+                <li>Regression methods</li>
+                <li>Clustering algorithms</li>
+                <li>Dimensionality reduction</li>
+                <li>Model selection and evaluation tools</li>
+                <li>Data preprocessing utilities</li>
+            </ul>
+
+            <p><strong>When to use:</strong> For traditional machine learning tasks before jumping to deep learning.
+                It's perfect for baseline models and many real-world problems don't need deep learning.</p>
+
+            <h3>4. TensorFlow</h3>
+            <p>
+                Google's open-source deep learning framework. TensorFlow is production-ready and scalable, used by
+                companies worldwide.
+            </p>
+
+            <p><strong>Strengths:</strong></p>
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>Keras API for easy model building</li>
+                <li>TensorFlow Lite for mobile deployment</li>
+                <li>TensorFlow.js for browser-based ML</li>
+                <li>TensorBoard for visualization</li>
+                <li>Excellent documentation and community</li>
+            </ul>
+
+            <p><strong>When to use:</strong> Production deep learning applications, especially when you need deployment
+                flexibility (mobile, web, embedded systems).</p>
+
+            <h3>5. PyTorch</h3>
+            <p>
+                Facebook's deep learning framework, beloved by researchers for its flexibility and Python-like feel.
+            </p>
+
+            <p><strong>Why I love it:</strong></p>
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>Dynamic computational graphs</li>
+                <li>Intuitive and Pythonic</li>
+                <li>Excellent for research and experimentation</li>
+                <li>Strong computer vision (torchvision) and NLP (torchtext) libraries</li>
+                <li>Growing production capabilities</li>
+            </ul>
+
+            <p><strong>When to use:</strong> Research projects, custom architectures, and when you want more control
+                over your models. Also excellent for learning deep learning concepts.</p>
+
+            <h2>Visualization</h2>
+
+            <h3>6. Matplotlib</h3>
+            <p>
+                The grandfather of Python visualization. While it might look dated, Matplotlib is incredibly powerful
+                and customizable.
+            </p>
+
+            <p><strong>Use cases:</strong></p>
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>Line plots, scatter plots, histograms</li>
+                <li>Publication-quality figures</li>
+                <li>Fine-grained control over every element</li>
+                <li>3D plotting</li>
+            </ul>
+
+            <h3>7. Seaborn</h3>
+            <p>
+                Built on Matplotlib, Seaborn makes statistical visualization beautiful and easy.
+            </p>
+
+            <p><strong>Why it's great:</strong></p>
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>Attractive default styles</li>
+                <li>Statistical plots (distributions, correlations)</li>
+                <li>Easy integration with Pandas</li>
+                <li>Categorical data visualization</li>
+            </ul>
+
+            <h3>8. Plotly</h3>
+            <p>
+                For interactive visualizations that you can embed in web applications.
+            </p>
+
+            <p><strong>Features:</strong></p>
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>Interactive plots with zoom, pan, hover</li>
+                <li>3D visualizations</li>
+                <li>Dashboard creation with Dash</li>
+                <li>Export to various formats</li>
+            </ul>
+
+            <h2>Computer Vision</h2>
+
+            <h3>9. OpenCV</h3>
+            <p>
+                The industry standard for computer vision tasks. If you're working with images or video, you'll use
+                OpenCV.
+            </p>
+
+            <p><strong>Capabilities:</strong></p>
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>Image processing and transformation</li>
+                <li>Object detection and tracking</li>
+                <li>Face recognition</li>
+                <li>Feature extraction</li>
+                <li>Video analysis</li>
+            </ul>
+
+            <h3>10. PIL/Pillow</h3>
+            <p>
+                For simpler image processing tasks, Pillow is lighter and easier than OpenCV.
+            </p>
+
+            <p><strong>Common uses:</strong></p>
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>Image resizing and cropping</li>
+                <li>Format conversion</li>
+                <li>Basic filters and enhancements</li>
+                <li>Drawing on images</li>
+            </ul>
+
+            <h2>Natural Language Processing</h2>
+
+            <h3>11. NLTK</h3>
+            <p>
+                Natural Language Toolkit – comprehensive library for symbolic and statistical NLP.
+            </p>
+
+            <p><strong>Features:</strong></p>
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>Tokenization and stemming</li>
+                <li>POS tagging</li>
+                <li>Named entity recognition</li>
+                <li>Sentiment analysis</li>
+                <li>Text classification</li>
+            </ul>
+
+            <h3>12. spaCy</h3>
+            <p>
+                Modern, production-ready NLP library that's fast and accurate.
+            </p>
+
+            <p><strong>Why it's popular:</strong></p>
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>Pre-trained models for multiple languages</li>
+                <li>Industrial-strength performance</li>
+                <li>Easy integration with deep learning</li>
+                <li>Built-in visualization tools</li>
+            </ul>
+
+            <h3>13. Transformers (Hugging Face)</h3>
+            <p>
+                Access to state-of-the-art transformer models like BERT, GPT, and more.
+            </p>
+
+            <p><strong>Game-changing features:</strong></p>
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>Pre-trained models for various NLP tasks</li>
+                <li>Easy fine-tuning</li>
+                <li>Support for TensorFlow and PyTorch</li>
+                <li>Model hub with thousands of models</li>
+            </ul>
+
+            <h2>Model Development & Deployment</h2>
+
+            <h3>14. Jupyter</h3>
+            <p>
+                Interactive computing environment essential for exploration and prototyping.
+            </p>
+
+            <p><strong>Why use notebooks:</strong></p>
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>Iterative development</li>
+                <li>Visualization alongside code</li>
+                <li>Documentation with markdown</li>
+                <li>Easy sharing and collaboration</li>
+            </ul>
+
+            <h3>15. Flask/FastAPI</h3>
+            <p>
+                For serving ML models as APIs.
+            </p>
+
+            <p><strong>Flask:</strong> Simple, lightweight, perfect for small projects</p>
+            <p><strong>FastAPI:</strong> Modern, fast, automatic API documentation, great for ML APIs</p>
+
+            <h3>16. Streamlit</h3>
+            <p>
+                Create web apps for your ML models without web development expertise.
+            </p>
+
+            <p><strong>Perfect for:</strong></p>
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>Interactive dashboards</li>
+                <li>Model demos</li>
+                <li>Data exploration tools</li>
+                <li>Rapid prototyping</li>
+            </ul>
+
+            <h2>Experiment Tracking & Optimization</h2>
+
+            <h3>17. MLflow</h3>
+            <p>
+                Track experiments, package code, and deploy models.
+            </p>
+
+            <p><strong>Components:</strong></p>
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>Tracking: Log parameters and results</li>
+                <li>Projects: Reproducible runs</li>
+                <li>Models: Standardized format</li>
+                <li>Registry: Model versioning</li>
+            </ul>
+
+            <h3>18. Optuna</h3>
+            <p>
+                Automated hyperparameter optimization that's efficient and easy to use.
+            </p>
+
+            <p><strong>Features:</strong></p>
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>Define-by-run API</li>
+                <li>Pruning of unpromising trials</li>
+                <li>Integration with major ML frameworks</li>
+                <li>Parallel and distributed optimization</li>
+            </ul>
+
+            <h2>Additional Utilities</h2>
+
+            <h3>19. Requests</h3>
+            <p>
+                For making HTTP requests to APIs – essential for data collection.
+            </p>
+
+            <h3>20. Beautiful Soup / Scrapy</h3>
+            <p>
+                Web scraping for gathering training data.
+            </p>
+
+            <h3>21. SQLAlchemy</h3>
+            <p>
+                Database toolkit for Python, useful when your data lives in databases.
+            </p>
+
+            <h2>My Recommended Learning Path</h2>
+
+            <h3>Beginner (Weeks 1-4)</h3>
+            <ol style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>NumPy fundamentals</li>
+                <li>Pandas for data manipulation</li>
+                <li>Matplotlib basics</li>
+                <li>Scikit-learn for first ML models</li>
+            </ol>
+
+            <h3>Intermediate (Months 2-3)</h3>
+            <ol style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>TensorFlow or PyTorch (choose one initially)</li>
+                <li>OpenCV for image processing</li>
+                <li>Seaborn for better visualizations</li>
+                <li>Jupyter for interactive development</li>
+            </ol>
+
+            <h3>Advanced (Months 4+)</h3>
+            <ol style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>Specialized libraries for your domain (NLP, CV, etc.)</li>
+                <li>Deployment tools (Flask, FastAPI, Streamlit)</li>
+                <li>Experiment tracking (MLflow)</li>
+                <li>Optimization tools (Optuna)</li>
+            </ol>
+
+            <h2>Tips for Learning Libraries</h2>
+
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li><strong>Read documentation:</strong> Official docs are your best friend</li>
+                <li><strong>Follow tutorials:</strong> But don't just copy-paste – understand</li>
+                <li><strong>Build projects:</strong> Apply what you learn immediately</li>
+                <li><strong>Join communities:</strong> Stack Overflow, Reddit, Discord</li>
+                <li><strong>Read source code:</strong> See how experts structure their code</li>
+                <li><strong>Keep a cheat sheet:</strong> Common operations you use frequently</li>
+            </ul>
+
+            <h2>Staying Updated</h2>
+
+            <p>
+                The Python ML ecosystem evolves rapidly. Here's how I stay current:
+            </p>
+
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>Follow library release notes</li>
+                <li>Subscribe to ML newsletters (Python Weekly, Data Science Weekly)</li>
+                <li>Participate in online communities</li>
+                <li>Attend virtual conferences and webinars</li>
+                <li>Experiment with new libraries in side projects</li>
+            </ul>
+
+            <h2>Final Thoughts</h2>
+
+            <p>
+                You don't need to master all these libraries immediately. Start with the fundamentals (NumPy, Pandas,
+                Scikit-learn), then gradually add others as your projects require them.
+            </p>
+
+            <p>
+                The best way to learn is by building. Pick a project that interests you and let it guide your learning.
+                You'll naturally discover which libraries you need and develop deeper expertise as you solve real
+                problems.
+            </p>
+
+            <p>
+                What are your favorite Python ML libraries? Are there any essential ones I missed? Share your
+                experiences in the comments!
+            </p>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Daan Hertveldt. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/HertveldtDaan" target="_blank" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/daan-hertveldt-504a9a359/" target="_blank" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
