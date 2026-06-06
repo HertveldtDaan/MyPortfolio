@@ -81,8 +81,8 @@ body {
 }
 
 .nav-container {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
 }
 
@@ -92,6 +92,7 @@ body {
     color: var(--accent);
     text-decoration: none;
     transition: color 0.3s ease;
+    justify-self: start;
 }
 
 .logo:hover {
@@ -103,6 +104,7 @@ body {
     list-style: none;
     gap: var(--spacing-md);
     align-items: center;
+    justify-self: center;
 }
 
 .nav-link {
@@ -142,6 +144,7 @@ body {
     align-items: center;
     gap: 0.5rem;
     transition: all 0.3s ease;
+    justify-self: end;
 }
 
 .theme-toggle:hover {
@@ -428,7 +431,7 @@ section {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: var(--spacing-md);
 }
 
@@ -439,6 +442,8 @@ section {
     box-shadow: 0 4px 12px var(--shadow);
     transition: all 0.3s ease;
     border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
 }
 
 .project-card:hover {
@@ -478,8 +483,12 @@ section {
 
 .project-tags {
     display: flex;
+    justify-content: flex-start;
     gap: var(--spacing-xs);
     flex-wrap: wrap;
+    margin-top: auto;
+    padding: 0;
+    margin-left: -0.75rem; /* Matches the tag's internal padding to align text visually */
 }
 
 .tag {
@@ -758,6 +767,8 @@ section {
 /* ===== Responsive Design ===== */
 @media (max-width: 768px) {
     .nav-container {
+        display: flex;
+        justify-content: space-between;
         position: relative;
     }
 
