@@ -463,6 +463,13 @@ section {
     font-weight: 600;
 }
 
+.project-status {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    margin-top: 0.25rem;
+}
+
 .project-link {
     color: var(--text-secondary);
     transition: color 0.3s ease, transform 0.3s ease;
