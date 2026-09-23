@@ -444,11 +444,26 @@ section {
     border: 1px solid var(--border);
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 24px var(--shadow-hover);
+}
+
+.project-image {
+    aspect-ratio: 16 / 9;
+    margin: calc(var(--spacing-md) * -1) calc(var(--spacing-md) * -1) var(--spacing-md);
+    background-color: var(--border);
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .project-header {
@@ -480,6 +495,11 @@ section {
 .project-link:hover {
     color: var(--accent);
     transform: scale(1.1);
+}
+
+.project-description a {
+    color: var(--accent);
+    text-decoration: underline;
 }
 
 .project-description {
